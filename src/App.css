@@ -1,0 +1,123 @@
+:root {
+  --green: #f84c94;
+  --muted: #bbf077;
+  --bg-color: #90c6eb;
+  /* 👉 YOUR BACKGROUND IMAGE: put the file in public/images/ and set its name here */
+  --bg-image: url("/images/background image/bg.png");
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  background: var(--bg-color) var(--bg-image) center / cover no-repeat fixed;
+}
+
+.page {
+  max-width: 932px;
+  margin: 0 auto;
+  padding: 52px 16px 60px;
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 50px;
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+/* three buttons in one row */
+.bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.dd { position: relative; }
+
+.dd-btn {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  font: 700 18px Arial, sans-serif;
+  color: var(--green);
+  background: #fff;
+  border: 2px solid var(--green);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.dd-btn.open {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(27, 122, 75, 0.35);
+}
+
+.arrow { font-size: 8px; }
+
+/* dropdown list floats over the image, like the screenshot */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(100% + 11px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.menu-item {
+  padding: 15px 21px;
+  font-size: 17px;
+  color: #1d2a24;
+  border-bottom: 1px solid #eef2f0;
+  cursor: pointer;
+}
+.menu-item:last-child { border-bottom: 0; }
+.menu-item:hover { background: #f1f7f4; color: var(--green); }
+
+/* image box + caption */
+.show {
+  margin-top: 62px;
+  text-align: center;
+}
+
+.frame {
+  display: inline-block;
+  width: min(524px, 100%);
+  border: 2px solid var(--green);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 524 / 398;
+  object-fit: cover;
+}
+
+.caption {
+  margin: 20px 0 0;
+  font-size: 22px;
+  font-weight: 50px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .bar { grid-template-columns: 1fr; gap: 14px; }
+}
